@@ -28,7 +28,7 @@ http://localhost:3000/api/healthCheck
       "type": "node-terminal",
       "request": "launch",
       "command": "yarn dev",
-      "env": { "APP_NODE_ENV": "production", "REGION": "us" }
+      "env": { "APP_NODE_ENV": "development", "REGION": "in" }
     },
     {
       "name": "Next.js: debug client-side",
