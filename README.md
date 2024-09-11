@@ -13,10 +13,40 @@
 1. yarn
 2. yarn dev
 
-# Coding Guidelines
-
-- https://docs.google.com/document/d/1BjBVwrSngmiPDAymf7ecqGrAEWrQ46XRMR_31yXuD3o/edit?usp=sharing
-
 # Sample route
 
 http://localhost:3000/api/healthCheck
+
+# launch file to debug
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn dev",
+      "env": { "APP_NODE_ENV": "production", "REGION": "us" }
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "yarn dev",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}
+```
